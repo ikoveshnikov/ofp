@@ -2895,7 +2895,7 @@ igmp_v3_enqueue_group_record(struct ofp_ifqueue *ifq, struct ofp_in_multi *inm,
 			now = ims_get_mode(inm, ims, 1);
 			CTR2(KTR_IGMPV3, "%s: node is %d", __func__, now);
 			if ((now != mode) ||
-			    (now == mode && mode == OFP_MCAST_UNDEFINED)) {
+			    (mode == OFP_MCAST_UNDEFINED)) {
 				CTR1(KTR_IGMPV3, "%s: skip node", __func__);
 				continue;
 			}
@@ -2984,7 +2984,7 @@ igmp_v3_enqueue_group_record(struct ofp_ifqueue *ifq, struct ofp_in_multi *inm,
 			    ofp_print_ip_addr(ims->ims_haddr));
 			now = ims_get_mode(inm, ims, 1);
 			if ((now != mode) ||
-			    (now == mode && mode == OFP_MCAST_UNDEFINED)) {
+			    (mode == OFP_MCAST_UNDEFINED)) {
 				CTR1(KTR_IGMPV3, "%s: skip node", __func__);
 				continue;
 			}

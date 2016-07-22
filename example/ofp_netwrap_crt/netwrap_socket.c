@@ -235,7 +235,7 @@ int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen)
 		if (addr) {
 			ofp_addr = (struct ofp_sockaddr *)&ofp_addr_local;
 
-			if (!addrlen || (addrlen && (*addrlen) < 0)) {
+			if (!addrlen || ((*addrlen) < 0)) {
 				errno = EINVAL;
 				return -1;
 			}
@@ -330,7 +330,7 @@ int accept4(int sockfd, struct sockaddr *addr, socklen_t *addrlen, int flags)
 		if (addr) {
 			ofp_addr = (struct ofp_sockaddr *)&ofp_addr_local;
 
-			if (!addrlen || (addrlen && (*addrlen) < 0)) {
+			if (!addrlen || ((*addrlen) < 0)) {
 				errno = EINVAL;
 				return -1;
 			}
