@@ -642,8 +642,8 @@ sysctl_sysctl_debug_dump_node(int fd, struct ofp_sysctl_oid_list *l, int i)
 		ofp_sendf(fd, "%d %s ", oidp->oid_number, oidp->oid_name);
 
 		ofp_sendf(fd, "%c%c",
-			oidp->oid_kind & OFP_CTLFLAG_RD ? 'R':' ',
-			oidp->oid_kind & OFP_CTLFLAG_WR ? 'W':' ');
+			(oidp->oid_kind & OFP_CTLFLAG_RD) ? 'R':' ',
+			(oidp->oid_kind & OFP_CTLFLAG_WR) ? 'W':' ');
 
 		/*if (oidp->oid_handler)
 		  ofp_sendf(fd, " *Handler");*/

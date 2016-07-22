@@ -338,7 +338,7 @@ ofp_tcp_twcheck(struct inpcb *inp, struct tcpopt *to, struct ofp_tcphdr *th,
 	 * Reset the 2MSL timer if this is a duplicate FIN.
 	 */
 	if (thflags & OFP_TH_FIN) {
-		seq = th->th_seq + tlen + (thflags & OFP_TH_SYN ? 1 : 0);
+		seq = th->th_seq + tlen + ((thflags & OFP_TH_SYN) ? 1 : 0);
 		if (seq + 1 == tw->rcv_nxt)
 			tcp_tw_2msl_reset(tw, 1);
 	}
