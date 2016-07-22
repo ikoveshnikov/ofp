@@ -84,8 +84,10 @@ int socket(int domain, int type, int protocol)
 				break;
 			case IPPROTO_TCP:
 				ofp_protocol = OFP_IPPROTO_TCP;
+				break;
 			case 0:
 				ofp_protocol = protocol;
+				break;
 			default:
 				ofp_protocol = protocol;
 			}
